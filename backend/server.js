@@ -9,7 +9,7 @@ const PORT = 3000;
 // Configura CORS
 app.use(cors({
     origin: '*',
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Accept']  // Added 'Accept' header
 }));
 
@@ -158,5 +158,33 @@ app.post('/api/logout', (req, res) => {
   
   return res.status(200).json({ message: 'Sesión cerrada exitosamente.' });
 });
+// Ruta para eliminar la cuenta de usuario (DELETE)
+app.delete('/api/delete-account/:email', (req, res) => {
+    const emailToDelete = req.params.email;
+    console.log('Attempting to delete account for:', emailToDelete); // Log de depuración
 
-// ... rest of code ...
+    if (!emailToDelete) {
+        return res.status(400).json({ message: 'Email es requerido para la eliminación.' });
+    }
+
+    // Consulta SQL para eliminar el usuario
+    db.query(
+        'DELETE FROM users WHERE email = ?',
+        [emailToDelete],
+        (err, result) => {
+            if (err) {
+                console.error('Error al eliminar de la base de datos:', err);
+                return res.status(500).json({ message: 'Error de servidor al eliminar la cuenta.' });
+            }
+            
+            if (result.affectedRows === 0) {
+                // Esto ocurre si el email no existe en la base de datos
+                return res.status(404).json({ message: 'Usuario no encontrado para eliminar.' });
+            }
+
+            // Éxito en la eliminación
+            console.log(`Cuenta eliminada con éxito: ${emailToDelete}`);
+            return res.status(200).json({ message: 'Cuenta eliminada con éxito. ¡Adiós!' });
+        }
+    );
+});

@@ -90,6 +90,24 @@ body > * {
     box-shadow: 0 8px 32px rgba(0,0,0,0.18);
     background: linear-gradient(120deg, #e0eaff 0%, #f8f9fa 100%);
 }
+/* NUEVO: Esto es necesario para sobrescribir los colores de los títulos (h5) y párrafos (p) dentro de la tarjeta en el hover */
+.game-card:hover * {
+    color: #000 !important;
+}
+
+/* Y si estás usando la clase genérica de Bootstrap `.card` en la página "Sobre Nosotros" */
+.card:hover {
+    /* Mantenemos tus estilos existentes */
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    /* NUEVO: Hace que el color del texto y los iconos dentro de la tarjeta sea negro */
+    color: #000; 
+}
+
+/* NUEVO: Sobrescribe el color de los elementos internos de la tarjeta genérica en el hover */
+.card:hover * {
+    color: #000 !important;
+}
 
 /* Modo oscuro */
 body.dark-mode {
