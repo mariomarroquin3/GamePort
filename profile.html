@@ -21,7 +21,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sobre Nosotros</a>
+                        <a class="nav-link" href="sobre_nosotros.html">Sobre Nosotros</a>
                     </li>
                 </ul>
                 <div class="d-flex align-items-center">
@@ -57,7 +57,7 @@
                     <a class="nav-link" href="profile.html"><i class="bi bi-person-circle me-2"></i>Mi Perfil</a>
                 </li>
                 <li class="list-group-item">
-                    <a class="nav-link" href="mis-logros.html"><i class="bi bi-trophy me-2"></i>Mis Logros</a>
+                    <a class="nav-link" href="https://mariomarroquin3.github.io/To-do/"><i class="bi bi-trophy me-2"></i>Mis tareas</a>
                 </li>
                 <li class="list-group-item">
                 <button id="logoutBtn" class="nav-link"><i class="bi bi-box-arrow-right me-2"></i>Cerrar Sesión</button>
@@ -139,13 +139,35 @@
                             </div>
                             <button type="submit" class="btn btn-success">Guardar Cambios</button>
                             <div id="updateMsg" class="alert mt-3 d-none"></div>
+                          
+                            <button type="button" class="btn btn-danger ms-3" data-bs-toggle="modal" data-bs-target="#deleteAccountModal">
+                                Eliminar Cuenta
+                            </button>
+                            <div id="updateMsg" class="alert mt-3 d-none"></div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+    <div class="modal fade" id="deleteAccountModal" tabindex="-1" aria-labelledby="deleteAccountModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteAccountModalLabel">Confirmación de Eliminación</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <strong>¡ATENCIÓN!</strong> Estás a punto de eliminar tu cuenta permanentemente. Esta acción es irreversible. Todos tus datos y logros se perderán.
+                <p class="mt-2">¿Estás absolutamente seguro de que deseas continuar?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Sí, Eliminar Mi Cuenta</button>
+            </div>
+        </div>
+    </div>
+</div>
     <footer class="footer-game-portal">
         <div class="container-footer">
             <div class="legal-section">
@@ -290,7 +312,53 @@ document.addEventListener('DOMContentLoaded', async function() {
             msgElement.textContent = 'Error al guardar los cambios';
         }
     });
+    // ... Continúa dentro de la función DOMContentLoaded
+
+    // ----------------------------------------------------
+    // Lógica para ELIMINAR CUENTA
+    // ----------------------------------------------------
+    document.getElementById('confirmDeleteBtn').addEventListener('click', async function() {
+        // Obtenemos el email que ya usamos para el perfil
+        const emailToDelete = localStorage.getItem('userEmail');
+
+        if (!emailToDelete) {
+            alert('Error: No se encontró el email de usuario para eliminar.');
+            return;
+        }
+
+        try {
+            // Cierra el modal de Bootstrap
+            const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteAccountModal'));
+            deleteModal.hide();
+
+            // Llama a la nueva ruta DELETE en el servidor
+            const response = await fetch(`http://localhost:3000/api/delete-account/${encodeURIComponent(emailToDelete)}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Éxito: Elimina el token o email de la sesión y redirige
+                localStorage.removeItem('userEmail');
+                alert(data.message || 'Cuenta eliminada con éxito. ¡Adiós!');
+                window.location.href = 'index.html'; // Redirige a la página principal
+            } else {
+                // Falla
+                alert(data.message || 'Error al eliminar la cuenta.');
+                console.error('Error al eliminar:', data.error);
+            }
+        } catch (error) {
+            console.error('Error de red al intentar eliminar:', error);
+            alert('Error de conexión con el servidor. Intenta de nuevo.');
+        }
+    });
+
 });
+
 </script>
 </body>
 </html>
