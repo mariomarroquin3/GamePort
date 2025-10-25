@@ -1,0 +1,313 @@
+/* Animated gradient background */
+body {
+    background: linear-gradient(-45deg, #dfab9c, #bedec3, #79bbd3, #f4cbf5);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Alternative: Subtle animated particles effect */
+/* Uncomment this section and comment the above if you prefer a more subtle look */
+/*
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+    animation: particleFloat 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes particleFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    50% {
+        transform: translateY(-20px) translateX(20px);
+    }
+}
+
+body > * {
+    position: relative;
+    z-index: 1;
+}
+*/
+
+/* Gradiente para navbar y footer */
+.bg-gradient-primary {
+    background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
+}
+
+/* Títulos con gradiente */
+.text-gradient {
+    background: linear-gradient(90deg, #0d6efd, #6610f2, #0d6efd);
+    background-size: 200% 200%;
+    animation: gradientMove 3s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@keyframes gradientMove {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Tarjetas*/
+.game-card {
+    transition: transform 0.25s cubic-bezier(.17,.67,.83,.67), box-shadow 0.25s;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    background: rgba(255,255,255,0.95);
+}
+.game-card:hover {
+    transform: translateY(-8px) scale(1.04);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    background: linear-gradient(120deg, #e0eaff 0%, #f8f9fa 100%);
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #181a1b !important;
+    color: #f1f1f1 !important;
+}
+body.dark-mode .navbar,
+body.dark-mode .bg-gradient-primary,
+body.dark-mode footer {
+    background: linear-gradient(90deg, #212529 0%, #343a40 100%) !important;
+    color: #f1f1f1 !important;
+}
+body.dark-mode .card {
+    background-color: #23272b !important;
+    color: #f1f1f1 !important;
+}
+body.dark-mode .card-img-top {
+    background-color: #343a40 !important;
+}
+body.dark-mode .dropdown-menu {
+    background-color: #23272b !important;
+    color: #f1f1f1 !important;
+}
+body.dark-mode .dropdown-item {
+    color: #f1f1f1 !important;
+}
+body.dark-mode .btn-outline-light {
+    border-color: #f1f1f1;
+    color: #f1f1f1;
+}
+body.dark-mode .btn-outline-light:hover {
+    background-color: #343a40;
+    color: #fff;
+}
+
+/* Social icons spacing */
+.social-links a {
+    transition: color 0.2s;
+}
+.social-links a:hover {
+    color: #0d6efd;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+    .navbar-brand span {
+        font-size: 1.2rem;
+    }
+    .game-card .card-body {
+        padding: 1rem 0.5rem;
+    }
+}
+@media (max-width: 768px) {
+    .game-card {
+        margin-bottom: 1.5rem;
+    }
+}
+/* Footer adjustments */
+/* Contenedor principal del footer */
+.footer-game-portal {
+    background-color: #0b0c0d; /* Azul oscuro */
+    color: white;
+    padding: 30px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente moderna */
+}
+
+/* Contenedor Flex para las tres secciones principales */
+.container-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Estilos de las líneas separadoras (implementadas como bordes) */
+.legal-section {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding-right: 40px;
+    flex: 1.5;
+}
+
+.social-section {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 0 40px;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-section {
+    padding-left: 40px;
+    flex: 2.5;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Títulos y nombres */
+.section-title, .portal-name {
+    font-weight: bold;
+    font-size: 1.2em; /* Ligeramente más grande */
+    margin-bottom: 15px;
+    color: #4CAF50; /* Un color de acento (verde) típico de gaming */
+}
+
+.portal-name {
+    margin-top: 0;
+    font-size: 1.5em;
+}
+
+/* Enlaces de la sección legal */
+.legal-section p {
+    margin: 3px 0;
+    font-size: 0.9em;
+}
+
+.legal-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.legal-section a:hover {
+    text-decoration: underline;
+    color: #4CAF50;
+}
+
+/* Iconos de redes sociales */
+.social-icon {
+    margin: 0 10px;
+}
+
+.social-icon img {
+    height: 40px; /* Iconos un poco más grandes para redes */
+    filter: invert(1); /* Iconos blancos */
+    transition: transform 0.2s;
+}
+
+.social-icon img:hover {
+    transform: scale(1.1); /* Efecto hover */
+}
+
+/* Información de contacto */
+.info-section p {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.info-section a {
+    color: #4CAF50; /* Enlaces con color de acento */
+    text-decoration: none;
+}
+
+.info-section a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+/* Estilos para móviles (columna única) */
+@media (max-width: 900px) {
+    .container-footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .legal-section, .social-section, .info-section {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding: 20px 0;
+        margin-bottom: 10px;
+        width: 90%;
+    }
+    
+    .social-section {
+        padding: 20px 0;
+    }
+}
+
+/* Offcanvas personalizado */
+.offcanvas-end {
+    background: linear-gradient(90deg, #212529 0%, #343a40 100%);
+    color: #fff;
+}
+.offcanvas .list-group-item {
+    background: transparent;
+    border: none;
+}
+.offcanvas .nav-link {
+    color: #fff;
+    font-size: 1.1rem;
+    transition: color 0.2s;
+}
+.offcanvas .nav-link:hover {
+    color: #0d6efd;
+    text-decoration: underline;
+}
+
+.card {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 150px;
+    object-fit: cover;
+}
+
+.game-checkbox:checked + label {
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+.form-check {
+    margin-top: auto;
+}
