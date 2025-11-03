@@ -95,25 +95,6 @@ body > * {
     color: #000 !important;
 }
 
-/* Y si estás usando la clase genérica de Bootstrap `.card` en la página "Sobre Nosotros" */
-.card:hover {
-    /* Mantenemos tus estilos existentes */
-    transform: translateY(-5px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    /* NUEVO: Hace que el color del texto y los iconos dentro de la tarjeta sea negro */
-    color: #000; 
-}
-
-/* NUEVO: Sobrescribe el color de los elementos internos de la tarjeta genérica en el hover */
-.card:hover * {
-    color: #000 !important;
-}
-
-/* Modo oscuro */
-body.dark-mode {
-    background-color: #181a1b !important;
-    color: #f1f1f1 !important;
-}
 body.dark-mode .navbar,
 body.dark-mode .bg-gradient-primary,
 body.dark-mode footer {
@@ -290,7 +271,7 @@ body.dark-mode .btn-outline-light:hover {
 
 /* Offcanvas personalizado */
 .offcanvas-end {
-    background: linear-gradient(90deg, #212529 0%, #343a40 100%);
+    background: linear-gradient(90deg, #2d68a3 0%, #0e3964 100%);
     color: #fff;
 }
 .offcanvas .list-group-item {

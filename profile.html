@@ -74,10 +74,11 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-4">
-                        <img src="avatar-default.png" class="img-fluid rounded-circle" alt="Avatar">
-                        <button class="btn btn-primary mt-2">Cambiar Avatar</button>
-                    </div>
+                    <div class="col-md-4 text-center">
+  <img id="user-avatar" src="avatar-default.png" class="img-fluid rounded-circle" alt="Avatar" width="150">
+  <input type="file" id="avatar-input" accept="image/*" style="display:none">
+  <button class="btn btn-primary mt-2" id="change-avatar-btn">Cambiar Avatar</button>
+</div>
                     <div class="col-md-8">
                         <form id="profileForm">
                             <div class="mb-3">
@@ -94,12 +95,96 @@
                                 <div class="row g-3" id="gamesContainer">
                                     <div class="col-md-4">
                                         <div class="card h-100">
-                                            <img src="sudoku.jpeg" class="card-img-top" alt="Sudoku">
+                                            <img src="icons/sudoku.png" class="card-img-top" alt="Sudoku">
                                             <div class="card-body">
                                                 <h5 class="card-title">Sudoku</h5>
                                                 <div class="form-check">
                                                     <input class="form-check-input game-checkbox" type="checkbox" value="sudoku" id="sudokuCheck">
                                                     <label class="form-check-label" for="sudokuCheck">
+                                                        Seleccionar como favorito
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <img src="Intense.png" class="card-img-top" alt="Intense Driving">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Intense Driving</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input game-checkbox" type="checkbox" value="intense_driving" id="intenseDrivingCheck">
+                                                    <label class="form-check-label" for="intenseDrivingCheck">
+                                                        Seleccionar como favorito
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <img src="icons/platformer.jpeg" class="card-img-top" alt="The Ascent Quest">
+                                            <div class="card-body">
+                                                <h5 class="card-title">The Ascent Quest</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input game-checkbox" type="checkbox" value="the_ascent_quest" id="theAscentQuestCheck">
+                                                    <label class="form-check-label" for="theAscentQuestCheck">
+                                                        Seleccionar como favorito
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <img src="icons/survival.jpeg" class="card-img-top" alt="Apex Survival">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Apex Survival</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input game-checkbox" type="checkbox" value="apex_survival" id="apexSurvivalCheck">
+                                                    <label class="form-check-label" for="apexSurvivalCheck">
+                                                        Seleccionar como favorito
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <img src="icons/mind-master2.jpeg" class="card-img-top" alt="Mind Master">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Mind Master</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input game-checkbox" type="checkbox" value="mind_master" id="mindMasterCheck">
+                                                    <label class="form-check-label" for="mindMasterCheck">
+                                                        Seleccionar como favorito
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <img src="icons/acrosticos.png" class="card-img-top" alt="Acrósticos">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Acrósticos</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input game-checkbox" type="checkbox" value="acrosticos" id="acrosticosCheck">
+                                                    <label class="form-check-label" for="acrosticosCheck">
+                                                        Seleccionar como favorito
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card h-100">
+                                            <img src="icons/PixelBomberSmash.jpg" class="card-img-top" alt="Pixel Bomber Smash">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Pixel Bomber Smash</h5>
+                                                <div class="form-check">
+                                                    <input class="form-check-input game-checkbox" type="checkbox" value="pixel_bomber_smash" id="pixelBomberSmashCheck">
+                                                    <label class="form-check-label" for="pixelBomberSmashCheck">
                                                         Seleccionar como favorito
                                                     </label>
                                                 </div>
@@ -190,9 +275,9 @@
                 <a href="URL_TWITTER_X" target="_blank" class="social-icon">
                     <img src="ruta/a/twitter-icon.png" alt="Twitter/X">
                 </a>
-                <a href="URL_YOUTUBE" target="_blank" class="social-icon">
-                    <img src="ruta/a/youtube-icon.png" alt="YouTube">
-                </a>
+                <a href="http://www.youtube.com/@GamePort-b4n" target="_blank" class="social-icon">
+                <img src="icons/YT.png" alt="YouTube">
+            </a>
             </div>
 
             <div class="info-section">
@@ -359,6 +444,43 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 });
 
+</script>
+<script>
+  // Referencias a los elementos
+  const avatarImg = document.getElementById('user-avatar');
+  const avatarInput = document.getElementById('avatar-input');
+  const changeAvatarBtn = document.getElementById('change-avatar-btn');
+
+  // Al hacer clic en el botón, abre el selector de archivos
+  changeAvatarBtn.addEventListener('click', () => {
+    avatarInput.click();
+  });
+
+  // Cuando el usuario selecciona una imagen
+  avatarInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        // Mostrar la imagen seleccionada
+        avatarImg.src = e.target.result;
+
+        // Guardar la imagen en localStorage
+        localStorage.setItem('userAvatar', e.target.result);
+      };
+
+      reader.readAsDataURL(file); // Convierte la imagen en base64
+    }
+  });
+
+  // Al cargar la página, revisar si hay un avatar guardado
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedAvatar = localStorage.getItem('userAvatar');
+    if (savedAvatar) {
+      avatarImg.src = savedAvatar;
+    }
+  });
 </script>
 </body>
 </html>
