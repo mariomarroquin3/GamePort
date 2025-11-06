@@ -14,7 +14,7 @@ body {
     100% { background-position: 0% 50%; }  /* Regresa a la posición inicial */
 }
 
-/* GRADIENTE PARA NAVBAR Y FOOTER */
+/* GRADIENTE PARA NAVBAR */
 .bg-gradient-primary {
     background: linear-gradient(90deg, #0d6efd 0%, #6610f2 100%);
 }
@@ -40,14 +40,12 @@ body {
     transition: transform 0.25s cubic-bezier(.17,.67,.83,.67), box-shadow 0.25s; 
     border-radius: 1rem; 
     border: none;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.08); 
     background: rgba(255,255,255,0.95); 
 }
 
 /* Efecto hover de las tarjetas */
 .game-card:hover {
     transform: translateY(-8px) scale(1.04); 
-    box-shadow: 0 8px 32px rgba(0,0,0,0.18); 
     background: linear-gradient(120deg, #e0eaff 0%, #f8f9fa 100%); 
 }
 
@@ -74,17 +72,6 @@ body.dark-mode .card-img-top {
     background-color: #343a40 !important; 
 }
 
-/* Cambia los menús desplegables al esquema oscuro */
-body.dark-mode .dropdown-menu {
-    background-color: #23272b !important; 
-    color: #f1f1f1 !important;
-}
-
-/* Ajusta el color del texto de cada elemento del menú desplegable */
-body.dark-mode .dropdown-item {
-    color: #f1f1f1 !important;
-}
-
 /* Redefine los botones con borde claro para que encajen en modo oscuro */
 body.dark-mode .btn-outline-light {
     border-color: #f1f1f1; 
@@ -96,13 +83,7 @@ body.dark-mode .btn-outline-light:hover {
     background-color: #343a40;
     color: #fff; 
 }
-/* EFECTO EN LOS ICONOS DE REDES SOCIALES */
-.social-links a {
-    transition: color 0.2s;
-}
-.social-links a:hover {
-    color: #0d6efd;
-}
+
 
 /* AJUSTES RESPONSIVOS (para pantallas pequeñas) */
 @media (max-width: 576px) {
@@ -185,7 +166,7 @@ body.dark-mode .btn-outline-light:hover {
 }
 
 .legal-section a {
-    color: white;
+    color: rgb(252, 250, 250);
     text-decoration: none;
 }
 
