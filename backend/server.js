@@ -79,7 +79,6 @@ app.post('/api/login', async (req, res) => {
                 return res.status(401).json({ message: 'Correo o contraseña incorrectos.' });
             }
 
-            // Aquí podrías generar un token de sesión si lo necesitas
             return res.status(200).json({ message: 'Inicio de sesión exitoso.' });
         }
     );
@@ -142,7 +141,6 @@ app.use(express.static(path.join(__dirname, '..')));
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`); 
 });
-// ... existing code ...
 
 // Ruta de logout
 app.post('/api/logout', (req, res) => {
@@ -152,9 +150,6 @@ app.post('/api/logout', (req, res) => {
   if (email) {
     console.log(`Usuario desconectado: ${email} - ${new Date().toISOString()}`);
   }
-  
-  // Si decides implementar tokens o sesiones en el futuro,
-  // aquí invalidarías el token/sesión
   
   return res.status(200).json({ message: 'Sesión cerrada exitosamente.' });
 });
